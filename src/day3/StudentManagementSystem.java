@@ -1,5 +1,7 @@
 package day3;
 
+import java.util.ArrayList;
+
 public class StudentManagementSystem {
 
 
@@ -76,9 +78,39 @@ public void displayDetails() {
 }
 
 
-}
+}public class StudentManager{
 
-		
+	ArrayList<Student>students=new ArrayList<>();
+	public void addStudent(Student s) {
+		students.add(s);
+		System.out.println("studens added succesfully");
+	}
+	public void displayStudents() {
+		if(students.isEmpty()) {
+			System.out.println("no students found");
+			return;
+		}
+		for(Student s:students) {
+			s.displayDetails();
+			
+		}
+	}
+		public void updateStudent(int id,String name,int age,int marks) {
+			for(Student s:students) {
+				if(s.getId()==id) {
+					s.setName(name);
+					s.setAge(age);
+					s.setMarks(marks);
+					System.out.println("student updated succesfully");
+					return;
+				}
+			}System.out.println("student id not found");
+		}
+	}
+
+
+
+
 
 	
 
